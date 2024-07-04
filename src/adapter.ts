@@ -432,7 +432,7 @@ export class MongooseAdapter implements BatchAdapter, FilteredAdapter, Updatable
         }
       }
 
-      await this.casbinRule.collection.insertMany(lines, options);
+      await this.casbinRule.collection.insertMany(lines as any, options);
 
       this.autoCommit && options.session && (await options.session.commitTransaction());
     } catch (err) {
